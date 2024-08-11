@@ -10,7 +10,10 @@ const app = express();
 connectDB();
 
 app.use(cors({
-    origin: 'https://splendorous-duckanoo-cc8fa0.netlify.app'
+    origin: [
+        'https://splendorous-duckanoo-cc8fa0.netlify.app', 
+        'http://localhost:3000' 
+      ]
   }));
   
 app.use(express.json());
