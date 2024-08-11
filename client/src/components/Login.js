@@ -26,7 +26,7 @@ const Login = () => {
         message.error("Please register to continue.");
         navigate("/signup");
       } 
-      else if(error.response?.data?.message==="Invalid Password"){
+      else if(error.response?.data?.message === "Invalid Password"){
         message.error("Invalid Password.");
       }
       else {
@@ -37,10 +37,10 @@ const Login = () => {
     }
   };
 
-  const onCaptchaChange = (value) => {
-    console.log(value);
-    setCaptchaVerified(!!value);
-  };
+  // const onCaptchaChange = (value) => {
+  //   console.log("Captcha value:", value);
+  //   setCaptchaVerified(!!value);
+  // };
 
   const handleRegisterClick = () => {
     navigate("/signup"); 
@@ -80,6 +80,12 @@ const Login = () => {
                 className="login__input"
               />
             </Form.Item>
+            {/* <Form.Item>
+              <ReCAPTCHA
+                sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+                onChange={onCaptchaChange}
+              />
+            </Form.Item> */}
             <Form.Item>
               <Button
                 htmlType="submit"
@@ -93,7 +99,6 @@ const Login = () => {
             <Button type="link" onClick={handleRegisterClick} className="register-btn">
               Register
             </Button>
-            
           </Form>
         </div>
         <div className="screen__background">
@@ -108,10 +113,3 @@ const Login = () => {
 };
 
 export default Login;
-
-{
-  /* <ReCAPTCHA
-      sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
-      onChange={onCaptchaChange}
-    />       */
-}
